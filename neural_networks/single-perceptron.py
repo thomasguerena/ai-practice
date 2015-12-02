@@ -40,13 +40,13 @@ class Perceptron(object):
 	#	  input values (x-coord, y-coord, bias) and a desired output.
 	#		e.g.    [(4,5,1,1), (9,13,1,-1), ...]
 	def train(self, data):
-		c = 0.01 # training constant
+		c = 0.01 # training constant (learning rate)
 		for v in data:
 			guess = self.pulse(v[:-1])
 			error = v[3] - guess
 
 			for i in range(len(self.weights)):
-				self.weights[i] = c * error * v[i]
+				self.weights[i] += c * error * v[i]
 
 
 # Example: determine if a point exists above or below
@@ -85,7 +85,7 @@ print(p.weights) # weights before
 
 # Training
 tdata = []
-for i in range(100):
+for i in range(1000):
 	x = random.randrange(-100, 100)
 	y = random.randrange(-100, 100)
 	r = 1 if x > 8 else -1
