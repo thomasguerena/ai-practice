@@ -3,6 +3,7 @@
 Basic artificial intelligence examples.
 
 Topics I would like to cover:
+
 1. [ ] &nbsp;&nbsp;&nbsp;Neural Networks - Single Perceptron
 2. [ ] &nbsp;&nbsp;&nbsp;Neural Networks - Hidden Layers
 3. [ ] &nbsp;&nbsp;&nbsp;Neural Networks - Back Propagation
