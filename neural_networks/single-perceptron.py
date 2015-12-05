@@ -85,9 +85,9 @@ print(p.weights) # weights before
 
 # Training
 tdata = []
-for i in range(1000):
-	x = random.randrange(-100, 100)
-	y = random.randrange(-100, 100)
+for i in range(10000):
+	x = random.randrange(-16, 16)
+	y = random.randrange(-16, 16)
 	r = 1 if x > 8 else -1
 	tdata.append((x,y,1,r))
 
@@ -96,5 +96,9 @@ p.train(tdata)
 print(p.weights) # weights after
 
 # Test
-print(p.pulse([5,5]))
-print(p.pulse([10,10]))
+numCorrect = 0.0
+for i in range(-16, 16):
+	guess = p.pulse([i,i])
+	answer = -1 if i < 8 else 1
+	if guess == answer: numCorrect += 1.0
+print("Accuracy: %f \r" % (numCorrect / 32))
